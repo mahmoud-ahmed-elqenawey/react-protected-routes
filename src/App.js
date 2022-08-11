@@ -5,6 +5,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import About from './pages/About';
+import PrivetRoutes from './utilities/PrivetRoutes';
 
 function App() {
     return (
@@ -21,8 +22,10 @@ function App() {
                 </li>
             </ul>
             <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='about' element={<About />} />
+                <Route element={<PrivetRoutes />}>
+                    <Route path='/' element={<Home />} />
+                    <Route path='about' element={<About />} />
+                </Route>
                 <Route path='login' element={<Login />} />
             </Routes>
         </div>
